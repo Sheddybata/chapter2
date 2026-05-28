@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8f7f2;
+  --foreground: #142018;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+::selection {
+  background: #047857;
+  color: #ffffff;
+}
+
+.constitutional-quote {
+  background-image:
+    linear-gradient(90deg, rgba(4, 120, 87, 0.1) 1px, transparent 1px),
+    linear-gradient(rgba(4, 120, 87, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.prose-chapter h2 {
+  color: #064e3b;
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-top: 2rem;
+}
+
+.prose-chapter p {
+  color: #44403c;
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+
+.prose-chapter ul {
+  color: #44403c;
+  line-height: 1.8;
+  list-style: disc;
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+}
