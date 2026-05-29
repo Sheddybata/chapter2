@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { AcceptanceSpeechFeature } from "@/components/acceptance-speech-feature";
+import { ConstitutionExplorerIntro } from "@/components/constitution-explorer-intro";
 import { SectionCard } from "@/components/section-card";
 import { publications } from "@/lib/platform";
 import { getAllSections } from "@/lib/sections";
@@ -71,6 +73,13 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <ConstitutionExplorerIntro />
+        <div className="mt-10">
+          <AcceptanceSpeechFeature />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.2em] text-emerald-800">
@@ -84,7 +93,7 @@ export default function Home() {
             href="/sections"
             className="text-sm font-black text-emerald-800 hover:text-emerald-950"
           >
-            View all {sections.length} sections
+            View all 12 sections
           </Link>
         </div>
 
@@ -92,6 +101,15 @@ export default function Home() {
           {featuredSections.map((section) => (
             <SectionCard key={section.slug} section={section} />
           ))}
+        </div>
+
+        <div className="mt-8 flex justify-center sm:justify-end">
+          <Link
+            href="/sections"
+            className="rounded-full bg-emerald-800 px-6 py-3 text-sm font-black text-white transition hover:bg-emerald-900"
+          >
+            View all 12 sections
+          </Link>
         </div>
       </section>
 

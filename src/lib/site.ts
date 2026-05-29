@@ -9,6 +9,7 @@ export const site = {
 };
 
 export const primaryNavigation = [
+  { label: "Home", href: "/" },
   { label: "Explore Chapter 2", href: "/sections" },
   { label: "Publications", href: "/publications" },
   { label: "Leadership", href: "/leadership" },

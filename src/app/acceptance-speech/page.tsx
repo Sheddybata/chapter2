@@ -40,7 +40,7 @@ export default function AcceptanceSpeechPage() {
               Download speech
             </a>
             <Link
-              href="/sections#acceptance-speech"
+              href="/#acceptance-speech"
               className="rounded-full border border-white/25 px-6 py-3 text-center text-sm font-black text-white"
             >
               Watch video
