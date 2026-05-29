@@ -14,7 +14,7 @@ export function MobileCta() {
           href="/action"
           className="rounded-full bg-emerald-800 px-3 py-3 text-center text-xs font-black text-white"
         >
-          Sign
+          Join
         </Link>
         <Link
           href="/students"

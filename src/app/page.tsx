@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { SectionCard } from "@/components/section-card";
+import { publications } from "@/lib/platform";
 import { getAllSections } from "@/lib/sections";
 import { site } from "@/lib/site";
 
@@ -34,7 +35,7 @@ export default function Home() {
                 href="/sections"
                 className="rounded-full bg-white px-6 py-4 text-center text-sm font-black text-emerald-950 shadow-xl transition hover:bg-emerald-50"
               >
-                Explore the 13 Sections
+                Explore the 12 Sections
               </Link>
               <Link
                 href="/action"
@@ -76,7 +77,7 @@ export default function Home() {
               Start here
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-tight text-emerald-950">
-              Explore Chapter II by section
+              Explore Chapter 2 by section
             </h2>
           </div>
           <Link
@@ -95,20 +96,44 @@ export default function Home() {
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 lg:grid-cols-3 lg:px-8">
-          {[
-            ["Educate", "Plain-English summaries make constitutional objectives understandable without overstating their legal effect."],
-            ["Expose the gap", "Each section can carry sourced stats showing the gap between law and reality."],
-            ["Convert", "Every page points voters toward joining, signing, sharing, and organizing."],
-          ].map(([title, body]) => (
-            <div
-              key={title}
-              className="rounded-[2rem] border border-emerald-950/10 bg-stone-50 p-6"
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+          <div className="rounded-[2rem] border border-emerald-950/10 bg-stone-50 p-6">
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-emerald-800">
+              Publications
+            </p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight text-emerald-950">
+              Build the intellectual backbone of the movement.
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-stone-600">
+              Plain-English summaries, research notes, and policy briefs make
+              Chapter 2 understandable without overstating its legal effect.
+            </p>
+            <Link
+              href="/publications"
+              className="mt-6 inline-flex rounded-full bg-emerald-800 px-6 py-3 text-sm font-black text-white"
             >
-              <h3 className="text-2xl font-black text-emerald-950">{title}</h3>
-              <p className="mt-3 text-sm leading-6 text-stone-600">{body}</p>
-            </div>
-          ))}
+              Open publications
+            </Link>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {publications.map((publication) => (
+              <Link
+                key={publication.title}
+                href={publication.href}
+                className="rounded-[2rem] border border-emerald-950/10 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-emerald-700/40"
+              >
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-800">
+                  {publication.status}
+                </p>
+                <h3 className="mt-3 text-xl font-black tracking-tight text-emerald-950">
+                  {publication.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-stone-600">
+                  {publication.description}
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

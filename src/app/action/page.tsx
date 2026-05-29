@@ -4,7 +4,7 @@ import { ChapterPoll } from "@/components/chapter-poll";
 import { PledgePreview } from "@/components/pledge-preview";
 
 export const metadata: Metadata = {
-  title: "Take Action",
+  title: "Join the Movement",
   description:
     "Join, sign, share, and organize around Chapter II of the Nigerian Constitution.",
 };
@@ -16,7 +16,7 @@ export default function ActionPage() {
         <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.22em] text-emerald-800">
-              Take action
+              Join the Movement
             </p>
             <h1 className="mt-4 text-5xl font-black tracking-[-0.05em] text-emerald-950">
               Make Chapter II operational.
@@ -30,7 +30,7 @@ export default function ActionPage() {
 
           <form className="rounded-[2rem] border border-emerald-950/10 bg-white p-6 shadow-sm">
             <h2 className="text-2xl font-black tracking-tight text-emerald-950">
-              Join the Chapter II movement
+              Join the Chapter 2 movement
             </h2>
             <div className="mt-6 grid gap-4">
               <label className="grid gap-2 text-sm font-bold text-stone-700">

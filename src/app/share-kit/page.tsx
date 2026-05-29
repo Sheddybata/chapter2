@@ -43,7 +43,7 @@ export default function ShareKitPage() {
             </div>
             <div className="flex flex-col gap-3 p-5 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-sm font-black uppercase tracking-[0.18em] text-emerald-800">
-                Chapter II Now
+                Achieving Chapter 2 Adebayo 2027
               </p>
               <button
                 type="button"

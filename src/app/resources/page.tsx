@@ -19,8 +19,8 @@ const resources = [
   {
     title: "Presidential Acceptance Speech at Bauchi",
     description:
-      "Placeholder for the PDF and transcript referenced in the campaign brief.",
-    href: "#",
+      "Read the full acceptance speech online or download the official document.",
+    href: "/acceptance-speech",
   },
   {
     title: "13-reel video series",
@@ -90,7 +90,7 @@ export default function ResourcesPage() {
                 {resource.description}
               </p>
               <p className="mt-6 text-sm font-black text-emerald-800">
-                Add file or link
+                {resource.href === "#" ? "Add file or link" : "Open resource"}
               </p>
             </Link>
           ))}

@@ -1,4 +1,4 @@
-# Chapter II Now
+# Achieving Chapter 2 Adebayo 2027
 
 A working Next.js platform for a Chapter II civic education and campaign microsite.
 
