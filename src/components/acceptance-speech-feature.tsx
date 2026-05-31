@@ -4,12 +4,12 @@ export function AcceptanceSpeechFeature() {
   return (
     <div
       id="acceptance-speech"
-      className="grid gap-6 rounded-[2rem] border border-emerald-950/10 bg-white p-5 shadow-sm lg:grid-cols-[1.1fr_0.9fr] lg:p-6"
+      className="grid gap-6 rounded-[2rem] border border-emerald-950/10 bg-white p-5 shadow-sm lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:p-6"
     >
-      <div className="overflow-hidden rounded-[1.5rem] bg-black">
-        <div className="aspect-video">
+      <div className="w-full overflow-hidden rounded-[1.5rem] bg-black">
+        <div className="relative aspect-video w-full">
           <iframe
-            className="h-full w-full"
+            className="absolute inset-0 h-full w-full border-0"
             src="https://www.youtube.com/embed/CBb5wehpX3k?si=JUI582o6WNmUudvh"
             title="Prince Adewole Adebayo acceptance speech"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -25,6 +25,22 @@ export function AcceptanceSpeechFeature() {
         <h2 className="mt-3 text-3xl font-black tracking-tight text-emerald-950">
           The speech that frames the constitutional mission.
         </h2>
+        <blockquote className="mt-4 border-l-4 border-emerald-800/40 pl-4 text-sm leading-7 text-stone-700">
+          There is a book that brought us together. It&apos;s called the
+          Constitution of Nigeria. That book has a chapter called chapter two,
+          Fundamental Objectives and Directive Principles of State Policy from
+          section 13 to section 23. Read that and use that to choose your
+          government. It starts by saying that power belongs to the people of
+          Nigeria and it is from the people that power and government will
+          derive. Do you agree? So, the power that will be given to the SDP and
+          the Adebayo presidency will come from the people of Nigeria. We will
+          not snatch it. We will not grab it. We will not run away with it. And
+          it says next; The fundamental principle of Nigeria will be Justice and
+          Social Democracy. It is in our constitution. We are the Social
+          Democratic Party. We derive from the Constitution. It says that the
+          resources of Nigeria will be used for the welfare and security of
+          Nigerians.
+        </blockquote>
         <p className="mt-4 text-sm leading-6 text-stone-600">
           Watch the video and keep the acceptance speech document close as the
           platform grows into publications, events, and organizing tools.

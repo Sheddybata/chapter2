@@ -33,7 +33,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/10 px-4 py-5 text-center text-xs text-emerald-50/60">
-        Achieving Chapter 2 Adebayo 2027 all rights reserved.
+        Achieving Chapter II - Adewole 2027 all rights reserved.
       </div>
     </footer>
   );

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Chapter 2 in History",
+  title: "Chapter II in History",
   description:
     "Publications on the historical role of Chapter II in Nigerian governance.",
 };
@@ -20,7 +20,7 @@ export default function HistoryPublicationsPage() {
         Publication series
       </p>
       <h1 className="mt-4 text-5xl font-black tracking-[-0.05em] text-emerald-950">
-        Chapter 2 in History
+        Chapter II in History
       </h1>
       <p className="mt-5 max-w-2xl text-lg leading-8 text-stone-600">
         Articles for this series will be added here as they are prepared.

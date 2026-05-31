@@ -4,7 +4,7 @@ import { SectionCard } from "@/components/section-card";
 import { getAllSections } from "@/lib/sections";
 
 export const metadata: Metadata = {
-  title: "Explore Chapter 2",
+  title: "Explore Chapter II",
   description:
     "Browse Sections 13 to 24 of Chapter II of the Nigerian Constitution.",
 };

@@ -5,7 +5,7 @@ import { pastEvents, upcomingEvents } from "@/lib/platform";
 export const metadata: Metadata = {
   title: "Events",
   description:
-    "Upcoming and past events for Achieving Chapter 2 Adebayo 2027.",
+    "Upcoming and past events for Achieving Chapter II - Adewole 2027.",
 };
 
 export default function EventsPage() {

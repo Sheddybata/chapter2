@@ -30,7 +30,7 @@ export default function ActionPage() {
 
           <form className="rounded-[2rem] border border-emerald-950/10 bg-white p-6 shadow-sm">
             <h2 className="text-2xl font-black tracking-tight text-emerald-950">
-              Join the Chapter 2 movement
+              Join the Chapter II movement
             </h2>
             <div className="mt-6 grid gap-4">
               <label className="grid gap-2 text-sm font-bold text-stone-700">

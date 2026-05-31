@@ -5,7 +5,7 @@ import { PublicationArticleCard } from "@/components/publication-article-card";
 import { potentialityArticles } from "@/lib/platform";
 
 export const metadata: Metadata = {
-  title: "Potentiality of Chapter 2",
+  title: "Potentiality of Chapter II",
   description:
     "Articles and commentary on the constitutional potential of Chapter II, welfare economics, and national development.",
 };
@@ -25,7 +25,7 @@ export default function PotentialityPublicationsPage() {
             Publication series
           </p>
           <h1 className="mt-4 max-w-4xl text-5xl font-black tracking-[-0.05em]">
-            Potentiality of Chapter 2
+            Potentiality of Chapter II
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-emerald-50/85">
             Policy analysis and public commentary on how Chapter II can shape

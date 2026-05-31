@@ -37,10 +37,10 @@ export function SiteHeader() {
           </span>
           <span className="hidden min-w-0 leading-tight sm:block">
             <span className="block text-sm font-black uppercase tracking-[0.12em] text-emerald-950">
-              Achieving Chapter 2
+              Achieving Chapter II
             </span>
             <span className="block text-xs font-semibold text-emerald-800">
-              Adebayo 2027
+              Adewole 2027
             </span>
           </span>
         </Link>

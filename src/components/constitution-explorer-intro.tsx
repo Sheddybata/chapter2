@@ -8,7 +8,7 @@ export function ConstitutionExplorerIntro() {
           Constitution explorer
         </p>
         <h2 className="mt-4 text-4xl font-black tracking-[-0.05em] text-emerald-950 sm:text-5xl">
-          Explore Chapter 2 with Prince Adewole Adebayo.
+          Achieving Chapter II with Prince Adewole Adebayo.
         </h2>
         <p className="mt-5 text-lg leading-8 text-stone-600">
           Read each constitutional objective, compare it with Nigerian reality,
@@ -29,7 +29,7 @@ export function ConstitutionExplorerIntro() {
               Prince Adewole Adebayo
             </p>
             <p className="mt-2 text-2xl font-black tracking-tight">
-              Constitutional leadership for Chapter 2.
+              Constitutional leadership for Chapter II.
             </p>
           </div>
         </div>

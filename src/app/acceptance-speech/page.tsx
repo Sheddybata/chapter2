@@ -22,7 +22,7 @@ export default function AcceptanceSpeechPage() {
             href="/sections"
             className="text-sm font-bold text-emerald-100 hover:text-white"
           >
-            Back to Explore Chapter 2
+            Back to Explore Chapter II
           </Link>
           <p className="mt-8 text-sm font-black uppercase tracking-[0.22em] text-emerald-200">
             {site.candidate}
@@ -79,7 +79,7 @@ export default function AcceptanceSpeechPage() {
 
         <div className="mt-12 rounded-[2rem] border border-emerald-950/10 bg-stone-50 p-6 sm:p-8">
           <p className="text-sm font-black uppercase tracking-[0.2em] text-emerald-800">
-            Chapter 2 connection
+            Chapter II connection
           </p>
           <p className="mt-4 text-base leading-8 text-stone-700">
             This speech frames the constitutional mission of the platform. Explore
@@ -91,7 +91,7 @@ export default function AcceptanceSpeechPage() {
               href="/sections"
               className="rounded-full bg-emerald-800 px-6 py-3 text-center text-sm font-black text-white"
             >
-              Explore Chapter 2
+              Explore Chapter II
             </Link>
             <Link
               href="/plan"

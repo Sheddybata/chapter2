@@ -86,7 +86,7 @@ export default function Home() {
               Start here
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-tight text-emerald-950">
-              Explore Chapter 2 by section
+              Explore Chapter II by section
             </h2>
           </div>
           <Link
@@ -124,7 +124,7 @@ export default function Home() {
             </h2>
             <p className="mt-3 text-sm leading-6 text-stone-600">
               Plain-English summaries, research notes, and policy briefs make
-              Chapter 2 understandable without overstating its legal effect.
+              Chapter II understandable without overstating its legal effect.
             </p>
             <Link
               href="/publications"

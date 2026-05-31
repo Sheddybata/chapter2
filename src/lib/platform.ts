@@ -1,7 +1,7 @@
 export const publications = [
   {
     id: "origin",
-    title: "Origin of Chapter 2",
+    title: "Origin of Chapter II",
     description:
       "A plain-English publication explaining why the Fundamental Objectives and Directive Principles were placed in the Constitution.",
     status: "Draft publication",
@@ -9,7 +9,7 @@ export const publications = [
   },
   {
     id: "history",
-    title: "Chapter 2 in History",
+    title: "Chapter II in History",
     description:
       "A historical guide to how Chapter II has shaped governance debates, constitutional reform, and citizen expectations.",
     status: "Research outline",
@@ -17,7 +17,7 @@ export const publications = [
   },
   {
     id: "potentiality",
-    title: "Potentiality of Chapter 2",
+    title: "Potentiality of Chapter II",
     description:
       "Policy analysis and public commentary on how Chapter II can shape welfare economics, governance, and national development.",
     status: "Featured articles",
@@ -25,7 +25,30 @@ export const publications = [
   },
 ];
 
-export const potentialityArticles = [
+export type PublicationItem = {
+  title: string;
+  source: string;
+  author: string;
+  url: string;
+  excerpt: string;
+  date?: string;
+  reporter?: string;
+  kind?: "article" | "document";
+  readHref?: string;
+};
+
+export const potentialityArticles: PublicationItem[] = [
+  {
+    title:
+      "Section 21: Key to Achieving Chapter II of the Nigerian Constitution",
+    source: "Platform document",
+    author: "Campaign research",
+    url: "/Section 21; Key to Achieving Chapter 2 of the Nigerian Constitution-1.docx",
+    excerpt:
+      "A research document on Section 21 and its role in making Chapter II operational through foreign policy, African unity, and international cooperation.",
+    kind: "document",
+    readHref: "/publications/read/section-21-key",
+  },
   {
     title:
       "Faloye berates Nigerian politicians over 'Chapter II' Constitution sideline",
@@ -59,6 +82,19 @@ export const potentialityArticles = [
   },
 ];
 
+export const originPublications: PublicationItem[] = [
+  {
+    title: "My Thoughts",
+    source: "Historical publication",
+    author: "Chief O. Awolowo",
+    url: "/Chief O. Awolowo, MY THOUGHTS.docx",
+    excerpt:
+      "Chief Obafemi Awolowo on constitutional purpose, public welfare, and the philosophical foundations that shaped Nigeria's Fundamental Objectives and Directive Principles.",
+    kind: "document",
+    readHref: "/publications/read/awolowo-my-thoughts",
+  },
+];
+
 export const leadership = [
   {
     name: "Prince Adewole Adebayo",
@@ -67,7 +103,7 @@ export const leadership = [
       "Constitutional leadership, national policy direction, and public argument for making Chapter II operational.",
   },
   {
-    name: "National Chapter 2 Desk",
+    name: "National Chapter II Desk",
     role: "Platform Coordination",
     focus:
       "Content approval, civic education partnerships, volunteer routing, and publication planning.",
@@ -96,7 +132,7 @@ export const zonalLeadership = [
 
 export const upcomingEvents = [
   {
-    title: "Chapter 2 Civic Education Town Hall",
+    title: "Chapter II Civic Education Town Hall",
     date: "Date to be announced",
     location: "Abuja / Hybrid",
     description:
@@ -127,7 +163,7 @@ export const pastEvents = [
       "Speech resource and video archive used to frame the constitutional direction of the platform.",
   },
   {
-    title: "Chapter 2 Content Build",
+    title: "Chapter II Content Build",
     date: "Platform milestone",
     location: "Digital",
     description:

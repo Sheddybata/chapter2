@@ -6,7 +6,7 @@ import { potentialityArticles, publications } from "@/lib/platform";
 export const metadata: Metadata = {
   title: "Publications",
   description:
-    "Chapter 2 publications on origin, history, and potentiality for Achieving Chapter 2 Adebayo 2027.",
+    "Chapter II publications on origin, history, and potentiality for Achieving Chapter II - Adewole 2027.",
 };
 
 export default function PublicationsPage() {
@@ -18,7 +18,7 @@ export default function PublicationsPage() {
             Publications
           </p>
           <h1 className="mt-4 max-w-4xl text-5xl font-black tracking-[-0.05em]">
-            Research, history, and policy arguments for achieving Chapter 2.
+            Research, history, and policy arguments for achieving Chapter II.
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-emerald-50/85">
             Choose a publication series to explore articles, briefs, and

@@ -5,7 +5,7 @@ import { leadership, zonalLeadership } from "@/lib/platform";
 export const metadata: Metadata = {
   title: "Leadership",
   description:
-    "Leadership and zonal leadership structure for Achieving Chapter 2 Adebayo 2027.",
+    "Leadership and zonal leadership structure for Achieving Chapter II - Adewole 2027.",
 };
 
 export default function LeadershipPage() {
