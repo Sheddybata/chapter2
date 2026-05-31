@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const pollOptions = [
   "Make all Chapter II provisions justiciable",
@@ -10,39 +10,35 @@ const pollOptions = [
 ];
 
 export function ChapterPoll() {
-  const [selected, setSelected] = useState<string | null>(null);
+  function handleSelect(option: string) {
+    openWhatsApp(
+      `I support making Chapter II operational. My priority is: ${option}.`,
+    );
+  }
 
   return (
     <div className="rounded-[2rem] border border-emerald-950/10 bg-white p-6 shadow-sm">
       <p className="text-sm font-black uppercase tracking-[0.2em] text-emerald-800">
-        Frontend poll
+        Your priority
       </p>
       <h2 className="mt-3 text-2xl font-black tracking-tight text-emerald-950">
         What should happen first?
       </h2>
+      <p className="mt-3 text-sm leading-6 text-stone-600">
+        Tap your answer to send it to the campaign team on WhatsApp.
+      </p>
       <div className="mt-5 grid gap-3">
         {pollOptions.map((option) => (
           <button
             key={option}
             type="button"
-            onClick={() => setSelected(option)}
-            className={[
-              "rounded-2xl border px-4 py-3 text-left text-sm font-bold transition",
-              selected === option
-                ? "border-emerald-700 bg-emerald-50 text-emerald-950"
-                : "border-stone-200 bg-stone-50 text-stone-700 hover:border-emerald-300",
-            ].join(" ")}
+            onClick={() => handleSelect(option)}
+            className="rounded-2xl border border-stone-200 bg-stone-50 px-4 py-3 text-left text-sm font-bold text-stone-700 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-950"
           >
             {option}
           </button>
         ))}
       </div>
-      {selected ? (
-        <p className="mt-4 rounded-2xl bg-emerald-900 p-4 text-sm font-semibold leading-6 text-white">
-          You selected: {selected}. Later, this can save responses to Supabase
-          or your CRM with state/LGA segmentation.
-        </p>
-      ) : null}
     </div>
   );
 }
