@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { SiteLogo } from "@/components/site-logo";
 import { navigation, site } from "@/lib/site";
 
 export function SiteFooter() {
@@ -7,7 +8,8 @@ export function SiteFooter() {
     <footer className="border-t border-emerald-950/10 bg-emerald-950 text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-emerald-200">
+          <SiteLogo size={56} className="h-14 w-14 object-contain" />
+          <p className="mt-4 text-sm font-black uppercase tracking-[0.22em] text-emerald-200">
             {site.name}
           </p>
           <p className="mt-4 max-w-xl text-3xl font-black tracking-tight">

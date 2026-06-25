@@ -4,6 +4,7 @@ export const site = {
   description:
     "A civic education and action platform for Chapter II of the 1999 Constitution of the Federal Republic of Nigeria.",
   url: "https://achievingchapter2.ng",
+  logo: "/logo.jpeg",
   tagline: "Achieving Chapter II - Adewole 2027",
   candidate: "Prince Adewole Adebayo",
 };

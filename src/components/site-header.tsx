@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+import { SiteLogo } from "@/components/site-logo";
 import {
   moreNavigation,
   navigation,
@@ -32,9 +33,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-emerald-950/10 bg-white/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="group flex min-w-0 shrink-0 items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-800 text-sm font-black text-white shadow-sm">
-            II
-          </span>
+          <SiteLogo size={40} className="h-10 w-10 object-contain" priority />
           <span className="hidden min-w-0 leading-tight sm:block">
             <span className="block text-sm font-black uppercase tracking-[0.12em] text-emerald-950">
               Achieving Chapter II
