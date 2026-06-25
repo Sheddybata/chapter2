@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { potentialityArticles, publications } from "@/lib/platform";
+import { getSeriesArticleCount } from "@/components/series-article-list";
+import {
+  originPublications,
+  potentialityArticles,
+  publications,
+} from "@/lib/platform";
 
 export const metadata: Metadata = {
   title: "Publications",
@@ -9,7 +14,16 @@ export const metadata: Metadata = {
     "Chapter II publications on origin, history, and potentiality for Achieving Chapter II - Adewole 2027.",
 };
 
-export default function PublicationsPage() {
+export default async function PublicationsPage() {
+  const counts = {
+    origin: await getSeriesArticleCount("origin", originPublications.length),
+    history: await getSeriesArticleCount("history", 0),
+    potentiality: await getSeriesArticleCount(
+      "potentiality",
+      potentialityArticles.length,
+    ),
+  };
+
   return (
     <>
       <section className="bg-emerald-950 text-white">
@@ -24,16 +38,19 @@ export default function PublicationsPage() {
             Choose a publication series to explore articles, briefs, and
             constitutional commentary.
           </p>
+          <Link
+            href="/login"
+            className="mt-6 inline-flex rounded-full border border-white/25 px-6 py-3 text-sm font-black text-white transition hover:bg-white/10"
+          >
+            Contributor login
+          </Link>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-3">
           {publications.map((publication) => {
-            const articleCount =
-              publication.id === "potentiality"
-                ? potentialityArticles.length
-                : null;
+            const articleCount = counts[publication.id as keyof typeof counts];
 
             return (
               <Link
@@ -43,7 +60,7 @@ export default function PublicationsPage() {
               >
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-800">
                   {publication.status}
-                  {articleCount ? ` · ${articleCount} articles` : ""}
+                  {articleCount ? ` · ${articleCount} items` : ""}
                 </p>
                 <h2 className="mt-4 text-3xl font-black tracking-tight text-emerald-950">
                   {publication.title}

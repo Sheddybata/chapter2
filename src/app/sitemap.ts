@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 
+import { getPublishedArticleSlugs } from "@/lib/articles";
 import { getAllSections } from "@/lib/sections";
 import { site } from "@/lib/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = site.url;
   const staticRoutes = [
     "",
@@ -22,10 +23,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/action",
     "/resources",
     "/share-kit",
+    "/login",
+    "/signup",
   ];
   const sectionRoutes = getAllSections().map((section) => `/sections/${section.slug}`);
+  const articleRoutes = (await getPublishedArticleSlugs()).map(
+    (slug) => `/publications/article/${slug}`,
+  );
 
-  return [...staticRoutes, ...sectionRoutes].map((route) => ({
+  return [...staticRoutes, ...sectionRoutes, ...articleRoutes].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: "weekly",

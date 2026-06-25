@@ -94,6 +94,12 @@ export function SiteHeader() {
 
         <div className="ml-auto flex items-center gap-3">
           <Link
+            href="/login"
+            className="hidden text-sm font-bold text-stone-700 transition hover:text-emerald-800 md:inline-flex"
+          >
+            Account
+          </Link>
+          <Link
             href="/action"
             className="hidden rounded-full bg-emerald-800 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-emerald-900 lg:inline-flex"
           >
@@ -128,6 +134,13 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              href="/login"
+              className="rounded-2xl px-4 py-3 text-base font-bold text-stone-800 hover:bg-emerald-50"
+              onClick={() => setIsOpen(false)}
+            >
+              Account
+            </Link>
             <Link
               href="/action"
               className="mt-2 rounded-2xl bg-emerald-800 px-4 py-3 text-center text-base font-black text-white"

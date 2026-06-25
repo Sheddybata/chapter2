@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { PublicationArticleCard } from "@/components/publication-article-card";
+import {
+  getSeriesArticleCount,
+  SeriesArticleList,
+} from "@/components/series-article-list";
 import { originPublications } from "@/lib/platform";
 
 export const metadata: Metadata = {
@@ -10,7 +13,12 @@ export const metadata: Metadata = {
     "Publications on the origin of Chapter II of the Nigerian Constitution.",
 };
 
-export default function OriginPublicationsPage() {
+export default async function OriginPublicationsPage() {
+  const articleCount = await getSeriesArticleCount(
+    "origin",
+    originPublications.length,
+  );
+
   return (
     <>
       <section className="bg-emerald-950 text-white">
@@ -33,20 +41,13 @@ export default function OriginPublicationsPage() {
             Constitution.
           </p>
           <p className="mt-4 text-sm font-bold text-emerald-100">
-            {originPublications.length} publications
+            {articleCount} publications
           </p>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-5">
-          {originPublications.map((publication) => (
-            <PublicationArticleCard
-              key={publication.url}
-              {...publication}
-            />
-          ))}
-        </div>
+        <SeriesArticleList series="origin" staticItems={originPublications} />
       </section>
     </>
   );

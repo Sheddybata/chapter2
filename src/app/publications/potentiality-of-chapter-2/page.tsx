@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { PublicationArticleCard } from "@/components/publication-article-card";
+import {
+  getSeriesArticleCount,
+  SeriesArticleList,
+} from "@/components/series-article-list";
 import { potentialityArticles } from "@/lib/platform";
 
 export const metadata: Metadata = {
@@ -10,7 +13,12 @@ export const metadata: Metadata = {
     "Articles and commentary on the constitutional potential of Chapter II, welfare economics, and national development.",
 };
 
-export default function PotentialityPublicationsPage() {
+export default async function PotentialityPublicationsPage() {
+  const articleCount = await getSeriesArticleCount(
+    "potentiality",
+    potentialityArticles.length,
+  );
+
   return (
     <>
       <section className="bg-emerald-950 text-white">
@@ -32,17 +40,16 @@ export default function PotentialityPublicationsPage() {
             welfare economics, governance, and national development.
           </p>
           <p className="mt-4 text-sm font-bold text-emerald-100">
-            {potentialityArticles.length} articles
+            {articleCount} articles
           </p>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-5">
-          {potentialityArticles.map((article) => (
-            <PublicationArticleCard key={article.url} {...article} />
-          ))}
-        </div>
+        <SeriesArticleList
+          series="potentiality"
+          staticItems={potentialityArticles}
+        />
       </section>
     </>
   );
