@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { leadership, zonalLeadership } from "@/lib/platform";
 
@@ -7,6 +8,51 @@ export const metadata: Metadata = {
   description:
     "Leadership and zonal leadership structure for Achieving Chapter II - Adewole 2027.",
 };
+
+type Leader = (typeof leadership)[number];
+
+function LeadershipCard({ leader }: { leader: Leader }) {
+  if ("image" in leader && leader.image) {
+    return (
+      <article className="relative min-h-[420px] overflow-hidden rounded-[2rem] border border-emerald-950/10 shadow-sm">
+        <Image
+          src={leader.image}
+          alt={leader.name}
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 33vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-950/80 to-emerald-950/20" />
+        <div className="relative flex h-full min-h-[420px] flex-col justify-end p-6 text-white">
+          <h3 className="text-2xl font-black tracking-tight">{leader.name}</h3>
+          <p className="mt-2 text-sm font-black uppercase tracking-[0.16em] text-emerald-100">
+            {leader.role}
+          </p>
+          <p className="mt-4 text-sm leading-6 text-emerald-50/90">{leader.focus}</p>
+        </div>
+      </article>
+    );
+  }
+
+  return (
+    <article className="rounded-[2rem] border border-emerald-950/10 bg-white p-6 shadow-sm">
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-xl font-black text-emerald-900">
+        {leader.name
+          .split(" ")
+          .slice(0, 2)
+          .map((part) => part[0])
+          .join("")}
+      </div>
+      <h3 className="mt-5 text-2xl font-black tracking-tight text-emerald-950">
+        {leader.name}
+      </h3>
+      <p className="mt-2 text-sm font-black uppercase tracking-[0.16em] text-emerald-800">
+        {leader.role}
+      </p>
+      <p className="mt-4 text-sm leading-6 text-stone-600">{leader.focus}</p>
+    </article>
+  );
+}
 
 export default function LeadershipPage() {
   return (
@@ -22,9 +68,8 @@ export default function LeadershipPage() {
             </h1>
           </div>
           <p className="text-lg leading-8 text-emerald-50/85 lg:pt-12">
-            This page is a frontend-ready leadership structure for the platform:
-            national leadership, advisory roles, and zonal coordination that
-            can be replaced with confirmed names, portraits, and bios.
+            National leadership, advisory roles, and zonal coordination for
+            Achieving Chapter II across Nigeria.
           </p>
         </div>
       </section>
@@ -40,27 +85,7 @@ export default function LeadershipPage() {
         </div>
         <div className="mt-8 grid gap-5 lg:grid-cols-3">
           {leadership.map((leader) => (
-            <article
-              key={leader.name}
-              className="rounded-[2rem] border border-emerald-950/10 bg-white p-6 shadow-sm"
-            >
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-xl font-black text-emerald-900">
-                {leader.name
-                  .split(" ")
-                  .slice(0, 2)
-                  .map((part) => part[0])
-                  .join("")}
-              </div>
-              <h3 className="mt-5 text-2xl font-black tracking-tight text-emerald-950">
-                {leader.name}
-              </h3>
-              <p className="mt-2 text-sm font-black uppercase tracking-[0.16em] text-emerald-800">
-                {leader.role}
-              </p>
-              <p className="mt-4 text-sm leading-6 text-stone-600">
-                {leader.focus}
-              </p>
-            </article>
+            <LeadershipCard key={leader.name} leader={leader} />
           ))}
         </div>
       </section>

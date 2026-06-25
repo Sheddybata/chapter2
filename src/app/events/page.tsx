@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { pastEvents, upcomingEvents } from "@/lib/platform";
+import { getCampaignEvents } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Events",
@@ -8,7 +8,43 @@ export const metadata: Metadata = {
     "Upcoming and past events for Achieving Chapter II - Adewole 2027.",
 };
 
-export default function EventsPage() {
+function EventCard({
+  eventDate,
+  title,
+  location,
+  description,
+  muted = false,
+}: {
+  eventDate: string;
+  title: string;
+  location: string;
+  description: string;
+  muted?: boolean;
+}) {
+  return (
+    <article
+      className={[
+        "rounded-[2rem] border border-emerald-950/10 p-6",
+        muted ? "bg-stone-50" : "bg-white shadow-sm",
+      ].join(" ")}
+    >
+      <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-800">
+        {eventDate}
+      </p>
+      <h3 className="mt-4 text-2xl font-black tracking-tight text-emerald-950">
+        {title}
+      </h3>
+      <p className="mt-2 text-sm font-bold text-stone-500">{location}</p>
+      <p className="mt-4 text-sm leading-6 text-stone-600">{description}</p>
+    </article>
+  );
+}
+
+export default async function EventsPage() {
+  const events = await getCampaignEvents();
+  const upcomingEvents = events.filter((event) => event.status === "upcoming");
+  const pastEvents = events.filter((event) => event.status === "past");
+
   return (
     <>
       <section className="bg-emerald-950 text-white">
@@ -21,51 +57,37 @@ export default function EventsPage() {
             briefings.
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-emerald-50/85">
-            A frontend-ready events hub for upcoming and past programs. Later,
-            this can connect to registration, reminders, check-ins, and event
-            galleries.
+            Follow upcoming programs and revisit past campaign events here.
           </p>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.22em] text-emerald-800">
-              Upcoming
-            </p>
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-emerald-950">
-              Upcoming events
-            </h2>
-          </div>
-          <button
-            type="button"
-            className="rounded-full bg-emerald-800 px-6 py-3 text-sm font-black text-white"
-          >
-            Registration coming soon
-          </button>
+        <div>
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-emerald-800">
+            Upcoming
+          </p>
+          <h2 className="mt-3 text-4xl font-black tracking-tight text-emerald-950">
+            Upcoming events
+          </h2>
         </div>
 
         <div className="mt-8 grid gap-5 lg:grid-cols-3">
-          {upcomingEvents.map((event) => (
-            <article
-              key={event.title}
-              className="rounded-[2rem] border border-emerald-950/10 bg-white p-6 shadow-sm"
-            >
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-800">
-                {event.date}
-              </p>
-              <h3 className="mt-4 text-2xl font-black tracking-tight text-emerald-950">
-                {event.title}
-              </h3>
-              <p className="mt-2 text-sm font-bold text-stone-500">
-                {event.location}
-              </p>
-              <p className="mt-4 text-sm leading-6 text-stone-600">
-                {event.description}
-              </p>
-            </article>
-          ))}
+          {upcomingEvents.length === 0 ? (
+            <p className="rounded-[2rem] border border-emerald-950/10 bg-white p-6 text-sm text-stone-600 lg:col-span-3">
+              No upcoming events yet. Check back soon.
+            </p>
+          ) : (
+            upcomingEvents.map((event) => (
+              <EventCard
+                key={event.id}
+                eventDate={event.event_date}
+                title={event.title}
+                location={event.location}
+                description={event.description}
+              />
+            ))
+          )}
         </div>
       </section>
 
@@ -79,25 +101,22 @@ export default function EventsPage() {
           </h2>
 
           <div className="mt-8 grid gap-5 md:grid-cols-2">
-            {pastEvents.map((event) => (
-              <article
-                key={event.title}
-                className="rounded-[2rem] border border-emerald-950/10 bg-stone-50 p-6"
-              >
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-800">
-                  {event.date}
-                </p>
-                <h3 className="mt-4 text-2xl font-black tracking-tight text-emerald-950">
-                  {event.title}
-                </h3>
-                <p className="mt-2 text-sm font-bold text-stone-500">
-                  {event.location}
-                </p>
-                <p className="mt-4 text-sm leading-6 text-stone-600">
-                  {event.description}
-                </p>
-              </article>
-            ))}
+            {pastEvents.length === 0 ? (
+              <p className="rounded-[2rem] border border-emerald-950/10 bg-stone-50 p-6 text-sm text-stone-600 md:col-span-2">
+                No past events yet.
+              </p>
+            ) : (
+              pastEvents.map((event) => (
+                <EventCard
+                  key={event.id}
+                  eventDate={event.event_date}
+                  title={event.title}
+                  location={event.location}
+                  description={event.description}
+                  muted
+                />
+              ))
+            )}
           </div>
         </div>
       </section>

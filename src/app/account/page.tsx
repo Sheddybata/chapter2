@@ -53,12 +53,26 @@ export default async function AccountPage() {
         </div>
         <div className="flex flex-wrap gap-3">
           {isAdmin ? (
-            <Link
-              href="/admin/contributors"
-              className="rounded-full bg-emerald-950 px-5 py-3 text-sm font-black text-white transition hover:bg-emerald-900"
-            >
-              Approve contributors
-            </Link>
+            <>
+              <Link
+                href="/admin/contributors"
+                className="rounded-full bg-emerald-950 px-5 py-3 text-sm font-black text-white transition hover:bg-emerald-900"
+              >
+                Approve contributors
+              </Link>
+              <Link
+                href="/admin/events"
+                className="rounded-full bg-emerald-900 px-5 py-3 text-sm font-black text-white transition hover:bg-emerald-950"
+              >
+                Manage events
+              </Link>
+              <Link
+                href="/admin/quiz"
+                className="rounded-full bg-emerald-900 px-5 py-3 text-sm font-black text-white transition hover:bg-emerald-950"
+              >
+                Manage quiz
+              </Link>
+            </>
           ) : null}
           <SignOutButton />
         </div>

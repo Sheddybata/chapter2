@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ChapterQuiz } from "@/components/chapter-quiz";
-import { studentGlossary, studentModules } from "@/lib/learning";
+import { getQuizQuestions } from "@/lib/content";
+import { quizQuestions as fallbackQuizQuestions, studentGlossary, studentModules } from "@/lib/learning";
+import type { QuizQuestion } from "@/types/content";
 
 export const metadata: Metadata = {
   title: "Student Zone",
@@ -10,7 +12,21 @@ export const metadata: Metadata = {
     "A secondary-school friendly guide to Chapter II of the Nigerian Constitution.",
 };
 
-export default function StudentsPage() {
+export default async function StudentsPage() {
+  const dbQuestions = await getQuizQuestions();
+  const questions: QuizQuestion[] =
+    dbQuestions.length > 0
+      ? dbQuestions
+      : fallbackQuizQuestions.map((question, index) => ({
+          id: `fallback-${index}`,
+          question: question.question,
+          options: question.options,
+          answer: question.answer,
+          explanation: question.explanation,
+          sort_order: index + 1,
+          created_at: "",
+        }));
+
   return (
     <>
       <section className="bg-emerald-950 text-white">
@@ -84,7 +100,7 @@ export default function StudentsPage() {
       </section>
 
       <section id="quiz" className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
-        <ChapterQuiz />
+        <ChapterQuiz questions={questions} />
       </section>
 
       <section className="bg-white">

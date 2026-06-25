@@ -2,20 +2,38 @@
 
 import { useMemo, useState } from "react";
 
-import { quizQuestions } from "@/lib/learning";
+import type { QuizQuestion } from "@/types/content";
 
-export function ChapterQuiz() {
+type ChapterQuizProps = {
+  questions: QuizQuestion[];
+};
+
+export function ChapterQuiz({ questions }: ChapterQuizProps) {
   const [answers, setAnswers] = useState<Record<number, string>>({});
 
   const score = useMemo(
     () =>
-      quizQuestions.reduce((total, question, index) => {
+      questions.reduce((total, question, index) => {
         return total + (answers[index] === question.answer ? 1 : 0);
       }, 0),
-    [answers],
+    [answers, questions],
   );
 
-  const completed = Object.keys(answers).length === quizQuestions.length;
+  if (questions.length === 0) {
+    return (
+      <div className="rounded-[2rem] border border-emerald-950/10 bg-white p-6 shadow-sm sm:p-8">
+        <p className="text-sm font-black uppercase tracking-[0.2em] text-emerald-800">
+          Student quiz
+        </p>
+        <h2 className="mt-3 text-3xl font-black tracking-tight text-emerald-950">
+          Test your Chapter II knowledge
+        </h2>
+        <p className="mt-4 text-sm leading-6 text-stone-600">
+          Quiz questions will appear here soon.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="rounded-[2rem] border border-emerald-950/10 bg-white p-6 shadow-sm sm:p-8">
@@ -29,17 +47,17 @@ export function ChapterQuiz() {
           </h2>
         </div>
         <div className="rounded-full bg-emerald-50 px-4 py-2 text-sm font-black text-emerald-900">
-          Score: {score}/{quizQuestions.length}
+          Score: {score}/{questions.length}
         </div>
       </div>
 
       <div className="mt-8 grid gap-5">
-        {quizQuestions.map((question, index) => {
+        {questions.map((question, index) => {
           const selected = answers[index];
 
           return (
             <fieldset
-              key={question.question}
+              key={question.id}
               className="rounded-[1.5rem] border border-stone-200 p-4"
             >
               <legend className="px-2 text-base font-black text-stone-900">
@@ -87,21 +105,6 @@ export function ChapterQuiz() {
           );
         })}
       </div>
-
-      {completed ? (
-        <div className="mt-6 rounded-[1.5rem] bg-emerald-900 p-5 text-white">
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-emerald-100">
-            Completion badge
-          </p>
-          <p className="mt-2 text-2xl font-black">
-            Young Citizen: Chapter II Explorer
-          </p>
-          <p className="mt-2 text-sm leading-6 text-emerald-50/85">
-            Frontend-only certificate preview. Later, this can generate a
-            downloadable certificate or save progress after a backend is added.
-          </p>
-        </div>
-      ) : null}
     </div>
   );
 }

@@ -101,6 +101,7 @@ export const leadership = [
     role: "Campaign Principal",
     focus:
       "Constitutional leadership, national policy direction, and public argument for making Chapter II operational.",
+    image: "/princewole.jpg",
   },
   {
     name: "National Chapter II Desk",
@@ -129,44 +130,3 @@ export const zonalLeadership = [
   focus:
     "Student outreach, civic education events, community briefings, and local volunteer activation.",
 }));
-
-export const upcomingEvents = [
-  {
-    title: "Chapter II Civic Education Town Hall",
-    date: "Date to be announced",
-    location: "Abuja / Hybrid",
-    description:
-      "A launch conversation on why Chapter II matters to welfare, security, food, education, and national ethics.",
-  },
-  {
-    title: "Student Constitution Week",
-    date: "Date to be announced",
-    location: "Secondary schools and civic clubs",
-    description:
-      "Classroom-friendly sessions using the Student Zone quizzes, glossary, and discussion prompts.",
-  },
-  {
-    title: "Make Chapter II Operational Petition Drive",
-    date: "Date to be announced",
-    location: "Online and state chapters",
-    description:
-      "A coordinated digital and field push for supporters to sign, share, and adopt a section.",
-  },
-];
-
-export const pastEvents = [
-  {
-    title: "Presidential Acceptance Speech",
-    date: "Bauchi",
-    location: "Campaign archive",
-    description:
-      "Speech resource and video archive used to frame the constitutional direction of the platform.",
-  },
-  {
-    title: "Chapter II Content Build",
-    date: "Platform milestone",
-    location: "Digital",
-    description:
-      "Frontend platform launch with section pages, student tools, action previews, and publications structure.",
-  },
-];
